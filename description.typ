@@ -229,7 +229,7 @@
     ),
     (
       [
-        
+
         #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 3)
         #align(center)[
         #grid(columns: 3)[
@@ -264,7 +264,8 @@
       [- $B_i != B_(i+1) (1 <= i <= N-1)$인 경우에 주목합니다.],
       [- #math.op("MEX")값이 $B_(i+1)$이기 위해서는 해당 집합이 $B_i$를 가지고 있어야 합니다.],
       [- 이전 관찰과 종합하면 $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$가 됨을 알 수 있습니다.],
-      [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다.]
+      [- 이제 남은 값을 배치하는 방법은 여러 가지가 있습니다.],
+      [- 그 중 하나는 작은 수부터 빈 곳에 채워 넣는 것입니다.]
     ),
     (
       [- $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$ #v(1em)],
@@ -275,13 +276,13 @@
       [#v(-0.5em) $ A $ ],
     ),
     (
-      [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다. #v(1em)],
+      [- 남은 값을 작은 수부터 빈 곳에 채워 넣습니다. #v(1em)],
       [#align(center)[#table(columns:5)[#cell(1)][#cell(2)][#cell(2)][#cell(4)][#cell(6)]]],
       [#v(-0.5em) $ B $ ],
 
       [#align(center)[#table(columns:5)[#cell(3, color:PALE_RED)][#cell(1)][#cell(5, color:PALE_RED)][#cell(2)][#cell(4)]]],
       [#v(-0.5em) $ A $ ],
-      
+
       [- 시간복잡도는 $cal(O)(N)$입니다.],
     )
   ),
