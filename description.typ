@@ -14,6 +14,14 @@
 // 이모지는 그냥 넣으면 됩니다. 지원하지 않는 이모지는 깨집니다. 이모지는 https://github.com/polazarus/typst-svg-emoji 를 사용했습니다.
 // 그래프도 작성 가능합니다. https://www.graphviz.org/docs/graph/ 를 참고해서 ```render <여기에 그래프를 작성하세요>```
 
+#let cell(num, color: black, fill: none, stroke: none) = {
+  rect(
+    height: 50pt, width: 50pt,
+    stroke: stroke,
+    fill: fill,
+  )[#align(center + horizon)[#text(fill: color)[#num]]];
+}
+
 #let descriptions = (
   // 2A
   (
@@ -187,14 +195,7 @@
     ),
 
     (
-      [ #let cell(num, color: black, fill: none, stroke: none) = {
-          rect(
-            height: 50pt, width: 50pt,
-            stroke: stroke,
-            fill: fill,
-          )[#align(center + horizon)[#text(fill: color)[#num]]];
-        }
-        #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 5)
+      [ #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 5)
         #align(center)[
           #table()[#cell(1)][#cell(2, stroke: red)][#cell(3, fill: rgb("add8e6"))][#cell(4)][#cell(5)][#cell(5)][#cell(2, fill: rgb("ddd"), stroke: red)][#cell(1, fill: rgb("add8e6"))][#cell(4)][#cell(6)][#cell(0)][#cell(2)][#cell(4, fill: rgb("add8e6"))][#cell(2)][#cell(1)][#cell(0)][#cell(0)][#cell(2)][#cell(1)][#cell(7)]
         ]
@@ -228,13 +229,7 @@
     ),
     (
       [
-        #let cell(num, color: black, fill: none, stroke: none) = {
-          rect(
-            height: 50pt, width: 50pt,
-            stroke: stroke,
-            fill: fill,
-          )[#align(center + horizon)[#text(fill: color)[#num]]];
-        }
+        
         #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 3)
         #align(center)[
         #grid(columns: 3)[
@@ -272,22 +267,23 @@
       [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다.]
     ),
     (
-      [- $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$],
-      [ #set text(30pt)
-      #align(center)[ $B = {1, 2, 2, 4, 6}$ ]],
-      [ #set text(30pt)
-      #align(center)[$A = {?, #mono("1", color:PALE_RED), ?, #mono("2", color:PALE_RED), #mono("4", color:PALE_RED)}$ ]],
+      [- $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$ #v(1em)],
+      [#align(center)[#table(columns:5)[#cell(1)][#cell(2)][#cell(2)][#cell(4)][#cell(6)]]],
+      [#v(-0.5em) $ B $ ],
+
+      [#align(center)[#table(columns:5)[#cell("?")][#cell(1, color:PALE_RED)][#cell("?")][#cell(2, color:PALE_RED)][#cell(4, color:PALE_RED)]]],
+      [#v(-0.5em) $ A $ ],
     ),
     (
-      [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다.],
-      [#set text(30pt)
-      #align(center)[$B = {1, 2, 2, 4, 6}$ ]],
-      [ #set text(30pt)
-      #align(center)[$A = {#mono("3", color:PALE_RED), 1, #mono("5", color:PALE_RED), 2, 4}$ ]],
-    ),
-    (
+      [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다. #v(1em)],
+      [#align(center)[#table(columns:5)[#cell(1)][#cell(2)][#cell(2)][#cell(4)][#cell(6)]]],
+      [#v(-0.5em) $ B $ ],
+
+      [#align(center)[#table(columns:5)[#cell(3, color:PALE_RED)][#cell(1)][#cell(5, color:PALE_RED)][#cell(2)][#cell(4)]]],
+      [#v(-0.5em) $ A $ ],
+      
       [- 시간복잡도는 $cal(O)(N)$입니다.],
-    ),
+    )
   ),
 
   (
