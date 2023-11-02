@@ -14,9 +14,17 @@
 // 이모지는 그냥 넣으면 됩니다. 지원하지 않는 이모지는 깨집니다. 이모지는 https://github.com/polazarus/typst-svg-emoji 를 사용했습니다.
 // 그래프도 작성 가능합니다. https://www.graphviz.org/docs/graph/ 를 참고해서 ```render <여기에 그래프를 작성하세요>```
 
+#let cell(num, color: black, fill: none, stroke: none) = {
+  rect(
+    height: 50pt, width: 50pt,
+    stroke: stroke,
+    fill: fill,
+  )[#align(center + horizon)[#text(fill: color)[#num]]];
+}
+
 #let descriptions = (
   // 2A
-  ( 
+  (
     (
       [- 주어진 문자열에서 $1$이 연속으로 등장하는 구간을 알아내는 방법은 무엇일까요?],
       [- 여러 가지 방법이 있지만, 구현이 간단한 방법을 소개합니다.],
@@ -26,7 +34,7 @@
       [- 시간복잡도는 $cal(O)(N)$ 입니다.],
     ),
   ),
-  
+
   // 2B/1A
   (
     (
@@ -42,7 +50,7 @@
     (
       [- 간격을 짝수로 만드는 사람은 결국 두 플레이어 사이의 거리를 $0$으로 만듭니다.],
       [- 플레이어 사이의 거리가 $0$이 되는 순간, 다음 차례의 플레이어는 공격할 수 있습니다.],
-      [- 주어진 전장의 길이가 짝수라면, 선공이 먼저 둘 사이의 간격을 홀수로 만듭니다.], 
+      [- 주어진 전장의 길이가 짝수라면, 선공이 먼저 둘 사이의 간격을 홀수로 만듭니다.],
       [- 홀수라면, 선공이 둘 사이의 간격을 짝수로 만듭니다.],
       [- 따라서 전장의 길이가 짝수인 경우, 건덕이가 승리합니다.],
       [- 주어진 전장의 길이의 홀짝성을 판단하므로 시간복잡도는 $cal(O)(1)$입니다.],
@@ -50,7 +58,7 @@
       [#emoji.arm.muscle $N times N$ 전장에서 각 플레이어가 $(1,1)$, $(N,N)$에서 시작하면 누가 승리할까요?]
     ),
   ),
-  
+
   // 2C
   (
     (
@@ -64,7 +72,7 @@
       [- 원래 수는 $0$으로 시작하지 않음에 주의합시다.]
     ),
   ),
-  
+
   // 2D/1B
   (
     (
@@ -83,7 +91,7 @@
     ),
   ),
   // 2E
-  ( 
+  (
     (
       [- 왼쪽 절반의 문자와 오른쪽 절반의 문자의 교환을 통해 팰린드롬을 만들어 봅시다.],
       [- 연산을 통해 임의의 위치에 존재하는 두 문자를 교환할 수 있다면, #linebreak() 모든 문자를 원하는 곳에 배치할 수 있습니다. 과연 가능할까요?#v(0.5em)],
@@ -104,7 +112,7 @@
           )[#align(center + horizon)[#text(fill: color)[#num]]];
         }
         #set table(align: center, stroke: gray + 0.5pt, inset: 0pt, columns: 4)
-        
+
         #align(center)[
           #table(
           )[#cell(1, color: blue, fill:rgb("ddd"))][#cell(2)][#cell(3, color: PALE_RED)][#cell(4, color: PALE_RED, fill: rgb("ddd"))]
@@ -113,7 +121,7 @@
         #align(center)[
           #table(
           )[#cell(4, color: PALE_RED, fill:rgb("ddd"))][#cell(2)][#cell(3, color: PALE_RED, fill:rgb("ddd"))][#cell(1, color: blue)]
-        ]        
+        ]
         #v(-0.8em)
         #align(center)[
           #table(
@@ -129,12 +137,12 @@
     (
       [- 문자열의 길이가 홀수인 경우에는 가운데 글자를 교환할 수 없음에 유의합시다.],
       [- 해당 문자를 세지 않고, 짝수 길이의 문자열이라고 생각하면 됩니다.],
-      [- 팰린드롬이 되기 위해서는 양 쪽에 같은 수의 문자가 존재해야 합니다.], 
+      [- 팰린드롬이 되기 위해서는 양 쪽에 같은 수의 문자가 존재해야 합니다.],
       [- 알파벳이 문자열에 짝수번 등장한다면 양 쪽에 골고루 분배할 수 있습니다.],
       [- 시간복잡도는 $cal(O)(N)$입니다.],
     ),
   ),
-  
+
   (
     (
       [- 두 개의 말뚝과 깃대 하나를 골라 만들 수 있는 삼각형 넓이 중 최댓값을 구합시다.],
@@ -149,7 +157,7 @@
       [- $cal(O)(N^2 log M)$ 제한에는 충분히 통과할 수 있습니다.]
     ),
   ),
-  
+
   (
     (
       [- 스위치를 누르면 $3$초동안 두 배의 점수를 얻을 수 있습니다.],
@@ -166,7 +174,7 @@
       [- 시간복잡도는 $cal(O)(N)$입니다.]
     )
   ),
-  
+
   (
     (
       [ #let cell(num, color: black, fill: none, stroke: none) = {
@@ -187,14 +195,7 @@
     ),
 
     (
-      [ #let cell(num, color: black, fill: none, stroke: none) = {
-          rect(
-            height: 50pt, width: 50pt,
-            stroke: stroke,
-            fill: fill,
-          )[#align(center + horizon)[#text(fill: color)[#num]]];
-        }
-        #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 5)
+      [ #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 5)
         #align(center)[
           #table()[#cell(1)][#cell(2, stroke: red)][#cell(3, fill: rgb("add8e6"))][#cell(4)][#cell(5)][#cell(5)][#cell(2, fill: rgb("ddd"), stroke: red)][#cell(1, fill: rgb("add8e6"))][#cell(4)][#cell(6)][#cell(0)][#cell(2)][#cell(4, fill: rgb("add8e6"))][#cell(2)][#cell(1)][#cell(0)][#cell(0)][#cell(2)][#cell(1)][#cell(7)]
         ]
@@ -224,17 +225,11 @@
       [- 여러 방법 중 하나를 소개합니다.],
       [- 2차원 배열에서 직사각형 모양의 부분합은 $cal(O)(N M + Q)$에 구할 수 있습니다.],
       [- 쿼리가 직사각형의 부분합을 구하게끔 일감호를 재배치할 수 있을까요?],
-      
+
     ),
     (
       [
-        #let cell(num, color: black, fill: none, stroke: none) = {
-          rect(
-            height: 50pt, width: 50pt,
-            stroke: stroke,
-            fill: fill,
-          )[#align(center + horizon)[#text(fill: color)[#num]]];
-        }
+
         #set table(align: center, stroke: rgb("add8e6") + 1pt, inset: 0pt, columns: 3)
         #align(center)[
         #grid(columns: 3)[
@@ -245,18 +240,18 @@
         #table()[#cell(0, fill: rgb("add8e6"))][#cell(0, fill: rgb("add8e6"))][#cell(3, fill: rgb("add8e6"), stroke: PALE_RED)][#cell(0,fill: rgb("add8e6"))][#cell(2,fill: rgb("add8e6"), stroke: PALE_RED)][#cell(1,fill: rgb("add8e6"), stroke: PALE_RED)][#cell(1, fill: rgb("add8e6"), stroke: PALE_RED)][#cell(2, fill: rgb("add8e6"), stroke: PALE_RED)][#cell(4,fill: rgb("add8e6"), stroke: PALE_RED)][#cell(5, stroke: PALE_RED)][#cell(2, stroke: PALE_RED)][#cell(0)][#cell(0, stroke: PALE_RED)][#cell(0)][#cell(0)]]
         ]
       ]
-        
+
       ],
       [- 가능합니다.],
       [- 시간복잡도는 2차원 부분합과 같은 $cal(O)(N M + Q)$입니다.],
     ),
   ),
-  
+
   (
     (
       [- 우선 언제 #mono("NO", color:PALE_RED) 를 출력해야할 지 생각해봅니다.],
       [- #math.op("MEX")의 정의에 의해, 길이가 $N$인 수열의 #math.op("MEX")는 $N+1$보다 클 수 없습니다.],
-      [- $A$는 순열이기 때문에 $B_N = N+1$입니다.], 
+      [- $A$는 순열이기 때문에 $B_N = N+1$입니다.],
       [- $S_i = {A_1, A_2, dots, A_i}$라고 할 때, $S_i subset S_(i+1)$이므로 #linebreak() $B_i > B_(i+1) (1 <= i <= N-1)$일 수 없습니다. 즉 $B$는 #bf("단조증가")합니다.],
     ),
     (
@@ -268,14 +263,39 @@
     (
       [- $B_i != B_(i+1) (1 <= i <= N-1)$인 경우에 주목합니다.],
       [- #math.op("MEX")값이 $B_(i+1)$이기 위해서는 해당 집합이 $B_i$를 가지고 있어야 합니다.],
-      [- 이전 관찰과 종합하면 $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$가 됨을 알 수 있습니다.]
+      [- 이전 관찰과 종합하면 $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$가 됨을 알 수 있습니다.],
     ),
     (
-      [- 이제 남은 값은 작은 수부터 빈 자리에 넣어주면 됩니다.],
-      [- 시간복잡도는 $cal(O)(N)$입니다.]
+      [- 이제 남은 값을 배치하는 방법은 여러 가지가 있습니다.],
+      [- 그 중 하나는 작은 수부터 빈 곳에 채워 넣는 것입니다.],
+      [- 왜 이 방법이 가능할까요?],
     ),
+    (
+      [- 채워야하는 곳은 $B_(i-1) = B_i$인 $A_i$입니다.],
+      [- 해당 방법으로 빈 곳을 배치하면 $B_i < A_i$입니다.],
+      [- #math.op("MEX")값이 $B_i$인 배열에 $B_i$보다 큰 값을 배치하더라도 #math.op("MEX")값은 변하지 않습니다.],
+      [- 그리고 $B_(k-1) != B_k$인 $k$에 대해 총 $k$개의 공간에 $B_k$보다 작은 $B_k - 1 (<= k)$개의 수를 배치하므로 작은 수부터 배치하면 원하는 결과를 얻을 수 있습니다.],
+    ),
+    (
+      [- $B_i != B_(i+1)$일 때, $A_(i+1) = B_i$ #v(1em)],
+      [#align(center)[#table(columns:5)[#cell(1)][#cell(2)][#cell(2)][#cell(4)][#cell(6)]]],
+      [#v(-0.5em) $ B $ ],
+
+      [#align(center)[#table(columns:5)[#cell("?")][#cell(1, color:PALE_RED)][#cell("?")][#cell(2, color:PALE_RED)][#cell(4, color:PALE_RED)]]],
+      [#v(-0.5em) $ A $ ],
+    ),
+    (
+      [- 남은 값을 작은 수부터 빈 곳에 채워 넣습니다. #v(1em)],
+      [#align(center)[#table(columns:5)[#cell(1)][#cell(2)][#cell(2)][#cell(4)][#cell(6)]]],
+      [#v(-0.5em) $ B $ ],
+
+      [#align(center)[#table(columns:5)[#cell(3, color:PALE_RED)][#cell(1)][#cell(5, color:PALE_RED)][#cell(2)][#cell(4)]]],
+      [#v(-0.5em) $ A $ ],
+
+      [- 시간복잡도는 $cal(O)(N)$입니다.],
+    )
   ),
-  
+
   (
     (
       [- 주어진 문자열을 하나의 집합으로 생각합니다.],
@@ -292,7 +312,7 @@
       [- 비트집합을 사용하면 $cal(O)(N + 1024^2)$으로 줄일 수 있지만, 사용하지 않아도 됩니다.]
     ),
   ),
-  
+
   (
     (
       [- 주어진 등굣길을 그래프로 모델링해 봅시다.],
@@ -306,7 +326,7 @@
     ),
     (
       [- 문제의 정답은 $1$번 정점에서 학교에 해당하는 정점들까지의 최장거리와 같습니다.],
-      [- 구축한 그래프는 사이클 없는 방향 그래프입니다.], 
+      [- 구축한 그래프는 사이클 없는 방향 그래프입니다.],
       [- $1$번 정점에서 위상정렬을 시행한 뒤, 정렬한 순서대로 정답을 갱신해나가면 됩니다.],
       [- 학교에 처음 도착한 시간을 늦추는 것에 유의합시다. 학교에서 되돌아가는 간선은 존재할 수 없습니다.],
       [- 시간복잡도는 $cal(O)(N)$입니다.],
@@ -317,7 +337,7 @@
       [- 시간복잡도는 위와 같은 $cal(O)(N)$이지만, 상수가 작아 더 빠르게 통과합니다.], 
     )
   ),
-  
+
   (
     (
       // [- BFS의 순회 순서대로 정점에 번호를 붙이겠습니다. 하나를 고정하는 것은 정답에 영향을 미치지 않습니다.],
@@ -330,12 +350,12 @@
     //   [- $D_2 = B_2 = 2$이고, $2 < i <= k+1$인 $i$에 대한 $D_i$와 $B_i$값은 아래와 같습니다.],
     //   [#h(2em) #emoji.ast $D_i = sum_(j=2)^(i-1)S_j + 2$],
     //   [#h(2em) #emoji.ast $B_i = i$#v(1em)],
-    //   [- $sum_(i=2)^(k+1)|D_i-B_i|=&|2-2|+|S_2+2-3|+|S_2+S_3+2-4|+dots#linebreak() 
+    //   [- $sum_(i=2)^(k+1)|D_i-B_i|=&|2-2|+|S_2+2-3|+|S_2+S_3+2-4|+dots#linebreak()
     //   & + |sum^(k-1)_(j=1)S_j+2-(k+1)| #linebreak() &=|S_1-1| + |S_1+S_2-2| + dots + |sum^(k-1)_(j=1)S_j-(k-1)|$],
     //   [- 여기에서 $S_i>=1$이므로, ]
     // ),
   ),
-  
+
   (
     (
       [- 팰린드롬 애너그램에서 보였듯, $N$이 짝수인 경우 항상 가능합니다.],
@@ -343,7 +363,7 @@
       [- 어떻게 최소한의 연산으로 원하는 배열을 만들 수 있을까요?]
     ),
   ),
-  
+
   (
     (
       [- 하나의 등불이 다른 등불을 앞지르는 횟수가 곧 소원을 비는 횟수입니다.],
@@ -377,7 +397,7 @@
       [- 세그먼트 트리를 활용하면 앞지르는 쌍의 개수를 빠르게 구할 수 있습니다.],
       [#h(2em)#emoji.ast $k$번째 등불을 제거할 때, $A_k$보다 상승하는 정도가 큰 등불의 개수],
       [#h(2em)#emoji.ast $k+S$번째 등불을 추가할 때, $A_(k+S)$보다 상승하는 정도가 작은 등불의 개수]
-    ), 
+    ),
     (
       [- 주어진 등불 상승 속도의 범위가 최대 $10^9$이므로 좌표압축을 먼저 진행해야 합니다.],
       [- 시간복잡도는 $cal(O)(N log N)$입니다.],
@@ -390,7 +410,7 @@
 #let create_page(index) = {
 
   set list(marker: text(fill:KUPC_GREEN)[✓])
-  
+
   for pg in descriptions.at(index) {
     [
       #constructTitle(contest_problems.at(index), size: 2em, bookmark:false)
@@ -401,7 +421,7 @@
     pad(left: -1.5em)[#desc]
     v(0em);
   }
-    pagebreak(weak: true)    
+    pagebreak(weak: true)
   }
 }
 
