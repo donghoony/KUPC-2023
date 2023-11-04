@@ -264,7 +264,7 @@
         ][#align(center + horizon)[#h(1em)->#h(1em)]][#align(center + horizon)[
         #table()[#cell(1, fill: c1)][#cell(2,fill:c2)][#cell(3)][#cell(6,fill:c3)][#cell(4,fill: c1)][#cell(4,fill: c2)][#cell(6)][#cell(6, fill:c3)][#cell(8,fill: c1)]]][#align(center + horizon)[#h(1em)->#h(1em)]][
 
-          #table()[#cell(1)][#cell(2)][#cell(3)][#cell(6)][#cell(5)][#cell(6)][#cell(6)][#cell(12)][#cell(12)]
+          #table()[#cell(1)][#cell(2)][#cell(3)][#cell(6)][#cell(5)][#cell(6)][#cell(6)][#cell(12)][#cell(13)]
 
           ]
         ]
