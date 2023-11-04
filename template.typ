@@ -4,7 +4,7 @@
 #import "emoji/lib.typ" : *
 
 // 그래프를 그릴 수 있습니다.
-#import "@preview/gviz:0.1.0": *
+//#import "@preview/gviz:0.1.0": *
 
 #let project(title: "", authors: (), logo: none, body) = {
   // Set the document's basic properties.

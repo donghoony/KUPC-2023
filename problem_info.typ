@@ -44,14 +44,14 @@
   
   let d1_rate_count = d1_submit_count
   if (d1_submit_count == 0) {d1_rate_count = 1}
-  let d1_ac_rate = d1_ac_count / d1_rate_count * 100;
+  let d1_ac_rate = calc.round(d1_ac_count / d1_rate_count * 100, digits: 2);
 
   let d2_submit_count = problem.d2_stat.at(1)
   let d2_ac_count = problem.d2_stat.at(0)
   
   let d2_rate_count = d2_submit_count
   if (d2_submit_count == 0) {d2_rate_count = 1}
-  let d2_ac_rate = d2_ac_count / d2_rate_count * 100;
+  let d2_ac_rate = calc.round(d2_ac_count / d2_rate_count * 100, digits: 2);
 
   let d1_first_ac = problem.d1_first_ac.at(0)
   let d1_ac_at = problem.d1_first_ac.at(1)
@@ -66,14 +66,14 @@
   )
   
   list(marker: [#text("🥇", size:1.2em)],
-    [#if (isDiv2(problem) == true) { [#d2_first_ac, #d2_ac_at\분] } else {"─"}]
+    [#if (isDiv2(problem) == true and d2_ac_count != 0) { [#d2_first_ac, #d2_ac_at\분] } else {"─"}]
   )
   v(2em)
   list(marker: [#text("🪿", size:1.2em)],
     text[제출 #d1_submit_count\회, 정답 #d1_ac_count\명 (정답률 #d1_ac_rate\%)#v(0.5em)]
   )
   list(marker: [#text("🥇", size:1.2em)],
-    [#if (isDiv1(problem) == true) {[#d1_first_ac, #d1_ac_at\분]} else {"─"}]
+    [#if (isDiv1(problem) == true and d1_ac_count != 0) {[#d1_first_ac, #d1_ac_at\분]} else {"─"}]
   )
 }
 
