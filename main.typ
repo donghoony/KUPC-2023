@@ -4,8 +4,8 @@
 #import "problem_info.typ" : info
 #import "colors.typ" : *
 #import "description.typ" : create_page
-
 #show: project.with()
+
 
 #abstract_page(problems: contest_problems)
 
