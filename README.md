@@ -1,6 +1,7 @@
 # KUPC 2023 Editorial
 
 2023 건국대학교 프로그래밍 경진대회의 에디토리얼입니다. [**Typst**](https://typst.app/)로 작성되었습니다.
+에디토리얼은 [이곳에서](https://github.com/donghoony/KUPC-2023/blob/master/Editorial.pdf) 확인하실 수 있습니다.
 
 ## Environment
 로컬 환경에서 작업하는 것을 추천합니다. 개인적으로 사용한 툴은 아래와 같습니다.
@@ -8,7 +9,7 @@
 - [Typst LSP (VS Code Extension)](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp)
 - [Typst Preview (VS Code Extension)](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview)
 
-## How to use
+## How to edit typst script
 ```git
 git clone https://github.com/donghoony/KUPC-2023 
 git submodule update --init --recursive 
